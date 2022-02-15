@@ -19,20 +19,11 @@ int main(){
 
     status = connect(s, (struct sockaddr *)&addr, sizeof(addr));
     if( status < 0 ) perror("uh oh");
-
-    char motion[1];
+    
     while(1){
-        char buf[50];
-        memset(buf, 0, 50);
-        printf("\n\e[0;33myour command: \e[0;36m");
-        scanf("%s\e[0;37m", motion);
-        send(s, motion, 1, 0);
-        sleep(1);
-        int bytes_read = 0;
-        while(buf[bytes_read-1] != ';'){
-            bytes_read = recv(s, buf, sizeof(buf), 0);
-            printf("\e[0;35m%s", buf);
-        }
+        char buf[1];
+        recv(s, buf, 1, 0);
+        printf("%s", buf);
     }
     close(s);
     return 0;
