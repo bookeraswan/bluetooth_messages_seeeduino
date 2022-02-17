@@ -16,32 +16,19 @@ void setup(){
 } 
 
 void loop(){
-  send_bytes("Hey,\n");
-  delay(500);
-  send_bytes("I\n");
-  delay(500);
-  send_bytes("Think\n");
-  delay(500);
-  send_bytes("It's\n");
-  delay(500);
-  send_bytes("Crazy\n");
-  delay(500);
-  send_bytes("That\n");
-  delay(500);
-  send_bytes("This\n");
-  delay(500);
-  send_bytes("Is\n");
-  delay(500);
-  send_bytes("Possible!\n");
-  delay(500);
-  send_bytes(".\n");
-  delay(500);
-  send_bytes(".\n");
-  delay(500);
-  send_bytes(".\n");
-  delay(500);
-  send_bytes(":)\n");
-  delay(1000);
+  int a, b, c;
+  a = 0;
+  b = 1; 
+  c = 0;
+
+  for(int i = 0; i < 30; i++){
+    c = a+b;
+    a = b;
+    b = c;
+    send_bytes("\n  ");
+    send_bytes(String(c));
+    delay(250);
+  }
 }
 
 /*
