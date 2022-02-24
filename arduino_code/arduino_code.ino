@@ -28,13 +28,12 @@ void setup(){
 
 
 void loop(){
-    String message = bt.getText();
-    if(message.length() > 0){
-      display.clearDisplay();
-      display.setTextSize(2);
-      display.setCursor(0, 28);
-      display.print(message);
-      display.display();
-    }
+    double x = analogRead(0);
+    double y = analogRead(1);
+    display.clearDisplay();
+    display.setTextSize(2);
+    display.setCursor(0, 28);
+    display.print("(" + String((int)x*100/1024) + ", " + String((int)y*100/1024) + ")");
+    display.display();
     delay(100);
 }
