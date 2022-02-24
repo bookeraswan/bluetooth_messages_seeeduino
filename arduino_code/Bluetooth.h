@@ -28,4 +28,8 @@ public:
 
    void send(float val);
 
+   String getText();
+
+   char getChar();
+
 };

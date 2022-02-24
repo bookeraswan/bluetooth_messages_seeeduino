@@ -30,3 +30,22 @@ void Bluetooth::send(double val){
 void Bluetooth::send(float val){
     this->send(String(val));
 }
+
+String Bluetooth::getText(){
+  String message = "";
+  while(this->BluetoothSerial.available() > 0){
+    message += (char)this->BluetoothSerial.read();
+
+  }
+  return message;
+}
+
+char Bluetooth::getChar(){
+  if(this->BluetoothSerial.available() > 0){
+    char recieved = this->BluetoothSerial.read();
+    return recieved;
+  }
+  else{
+    return '\0';
+  }
+}
