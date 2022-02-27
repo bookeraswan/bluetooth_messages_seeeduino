@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 
-#define RX 7
-#define TX 8
+#define RX 8 // RX pin goes to TX on HC05 module
+#define TX 7 // TX pin goes to RX on HC05 module
 
 class Bluetooth{
 
