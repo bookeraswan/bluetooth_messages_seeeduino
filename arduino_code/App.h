@@ -1,3 +1,6 @@
+#ifndef APP
+#define APP
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_GFX.h>
@@ -23,3 +26,5 @@ public:
     virtual bool is_open() = 0;
 
 };
+
+#endif

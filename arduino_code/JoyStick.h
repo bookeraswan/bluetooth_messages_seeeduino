@@ -1,3 +1,5 @@
+#ifndef JOYSTICK
+#define JOYSTICK
 
 #include <Arduino.h>
 
@@ -20,3 +22,5 @@ public:
 
   bool pressed();
 };
+
+#endif

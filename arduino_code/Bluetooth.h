@@ -1,3 +1,6 @@
+#ifndef BLUETOOTH
+#define BLUETOOTH
+
 #include <SoftwareSerial.h>
 
 #define RX 8 // RX pin goes to TX on HC05 module
@@ -33,3 +36,5 @@ public:
    char getChar();
 
 };
+
+#endif
