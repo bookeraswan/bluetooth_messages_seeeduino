@@ -20,5 +20,6 @@ public:
     virtual void init()   = 0;
     virtual void update() = 0;
     virtual void close()  = 0;
+    virtual void is_open() = 0;
 
 };
