@@ -20,13 +20,13 @@ int main(){
     status = connect(s, (struct sockaddr *)&addr, sizeof(addr));
     if( status < 0 ) perror("uh oh");
     while(1){
-        char message[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
-        scanf("%s", message);
-        printf("%s", message);
-        send(s, message, strlen(message), 0);
-        // char buf[1];
-        // recv(s, buf, 1, 0);
-        // printf("%s", buf);
+        // char message[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
+        // scanf("%s", message);
+        // printf("%s", message);
+        // send(s, message, strlen(message), 0);
+        char buf[1];
+        recv(s, buf, 1, 0);
+        printf("%s", buf);
     }
     close(s);
     return 0;

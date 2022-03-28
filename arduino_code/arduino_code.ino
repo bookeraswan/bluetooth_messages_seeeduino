@@ -8,6 +8,7 @@
 #include "apps/MainMenu.h"
 #include "apps/TicTacToe.h"
 #include "apps/Clock.h"
+#include "apps/Coordinates.h"
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
@@ -21,7 +22,7 @@ JoyStick js(1,0, 2);
 
 Clock clock("Clock", &display, &js, &bt);
 TicTacToe t2("Tic Tac Toe", &display, &js, &bt);
-TicTacToe t3("Message", &display, &js, &bt);
+Coordinates t3(&display, &js, &bt);
 TicTacToe t4("Fibonacci", &display, &js, &bt);
 TicTacToe t5("Sleep Game", &display, &js, &bt);
 TicTacToe t6("Pac Man", &display, &js, &bt);
