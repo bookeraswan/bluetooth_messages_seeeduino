@@ -20,13 +20,24 @@ int main(){
     status = connect(s, (struct sockaddr *)&addr, sizeof(addr));
     if( status < 0 ) perror("uh oh");
     while(1){
-        // char message[7] = {'\0', '\0', '\0', '\0', '\0', '\0', '\0'};
-        // scanf("%s", message);
-        // printf("%s", message);
-        // send(s, message, strlen(message), 0);
         char buf[1];
         recv(s, buf, 1, 0);
         printf("%s", buf);
+        if(buf[0] == 'g'){
+            system("google-chrome 'https://google.com' &");
+        }
+        else if(buf[0] == 'c'){
+            system("cheese &");
+        }
+        else if(buf[0] == 'v'){
+            system("code .");
+        }
+        else if(buf[0] == 'w'){
+            system("whatsie &");
+        }
+        else if(buf[0] == 'n'){
+            system("google-chrome 'https://www.netflix.com' &");
+        }
     }
     close(s);
     return 0;
