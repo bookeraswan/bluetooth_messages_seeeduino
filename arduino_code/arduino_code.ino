@@ -9,6 +9,7 @@
 #include "apps/TicTacToe.h"
 #include "apps/Clock.h"
 #include "apps/Coordinates.h"
+#include "apps/Ball.h"
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
@@ -30,10 +31,11 @@ TicTacToe t7("Hang Man", &display, &js, &bt);
 TicTacToe t8("Snake", &display, &js, &bt);
 TicTacToe t9("Pong", &display, &js, &bt);
 TicTacToe t10("Pacman", &display, &js, &bt);
+Ball ball(&display, &js, &bt);
 
-App *apps[10] = {&clock, &t2, &t3, &t4, &t5, &t6, &t7, &t8, &t9, &t10};
+App *apps[11] = {&clock, &t2, &t3, &t4, &t5, &t6, &ball, &t7, &t8, &t9, &t10};
 
-int num_apps = 10;
+int num_apps = 11;
 
 MainMenu menu(apps, num_apps, &display, &js, &bt);
 
