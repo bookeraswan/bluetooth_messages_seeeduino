@@ -9,6 +9,10 @@
 #include "JoyStick.h"
 
 class App{
+
+private:
+    bool open = false;
+
 public:
     String name;
     Adafruit_SSD1306 *display;
@@ -20,10 +24,17 @@ public:
         this->joystick = joystick;
         this->bluetooth = bluetooth;
     }
-    virtual void init()   = 0;
+    virtual void init(){
+        open = true;
+    };
     virtual void update() = 0;
-    virtual void close()  = 0;
-    virtual bool is_open() = 0;
+    virtual void close(){
+        open = false;
+    }
+
+    virtual bool is_open(){
+        return open;
+    }
 
 };
 
