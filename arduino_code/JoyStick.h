@@ -3,6 +3,12 @@
 
 #include <Arduino.h>
 
+#define CENTER 'C'
+#define RIGHT 'R'
+#define LEFT 'L'
+#define UP 'U'
+#define DOWN 'D'
+
 class JoyStick{
 
 private:
