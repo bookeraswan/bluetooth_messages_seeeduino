@@ -17,11 +17,6 @@ public:
 
     }
 
-
-    void init(){
-        open = true;
-    }
-
     void update(){
         if(minutes == 60){
             hours++;
@@ -48,13 +43,5 @@ public:
         if(joystick->pressed()){
             close();
         }
-    }
-
-    void close(){
-        open = false;
-    }
-
-    bool is_open(){
-        return open;
     }
 };

@@ -14,10 +14,6 @@ class TicTacToe: public App{
 
         }
         
-        void init(){
-            open = true;
-        }
-        
         void update(){
             display->clearDisplay();
             display->setTextSize(1);
@@ -88,13 +84,4 @@ class TicTacToe: public App{
             display->print(board[8]);
             display->print("   ");
         }
-
-        void close(){
-            open = false;
-        }
-        
-        bool is_open(){
-            return open;
-        }
-
 };

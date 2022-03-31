@@ -10,16 +10,8 @@ class Coordinates: public App{
 
         }
 
-        void init(){}
-
         void update(){
             bluetooth->send(joystick->getDirection());
             delay(1000);
-        }
-
-        void close(){}
-
-        bool is_open(){
-            return true;
         }
 };

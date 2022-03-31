@@ -21,12 +21,12 @@ class MainMenu:App{
         }
 
         void init(){
+            App::init();
             display->clearDisplay();
             display->display();
             selection = 0;
             scroll_offset = 0;
             current_app = MENU_APP_ID;
-            open = true;
         }
 
         void update(){
@@ -46,18 +46,6 @@ class MainMenu:App{
 
             delay(150);
         }
-
-        void close(){
-            display->clearDisplay();
-            display->display();
-            open = false;
-        }
-
-        bool is_open(){
-            return open;
-        }
-
-
 
         void listen_for_selection_change(){
             String command = joystick->getDirection();
