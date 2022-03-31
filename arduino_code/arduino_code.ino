@@ -15,6 +15,8 @@
 #include "apps/VsCode.h"
 #include "apps/WhatsApp.h"
 #include "apps/Netflix.h"
+#include "apps/Pong.h"
+
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 
@@ -23,6 +25,8 @@
 
 Bluetooth bt;
 JoyStick js(1, 0, 2);
+
+#define NUMAPPS 10
 
 Clock clock("Clock", &display, &js, &bt);
 TicTacToe t2("Tic Tac Toe", &display, &js, &bt);
@@ -33,10 +37,11 @@ VsCode t6("Vs Code", &display, &js, &bt);
 WhatsApp t7("WhatsApp", &display, &js, &bt);
 Netflix t8("Netflix", &display, &js, &bt);
 Ball ball(&display, &js, &bt);
+Pong pong(&display, &js, &bt);
 
-App *apps[9] = {&clock, &t2, &t3, &t4, &t5, &t6, &t7, &ball, &t8};
+App *apps[NUMAPPS] = {&clock, &t2, &t3, &t4, &t5, &t6, &t7, &ball, &t8, &pong};
 
-int num_apps = 9;
+int num_apps = NUMAPPS;
 
 MainMenu menu(apps, num_apps, &display, &js, &bt);
 
