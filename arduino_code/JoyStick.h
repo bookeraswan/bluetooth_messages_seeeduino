@@ -24,7 +24,7 @@ public:
     pinMode(s_pin, INPUT_PULLUP);
   }
 
-  String getDirection();
+  char getDirection();
 
   bool pressed();
 };
