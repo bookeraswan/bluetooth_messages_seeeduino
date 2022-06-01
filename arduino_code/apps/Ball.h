@@ -38,7 +38,6 @@ class Ball: public App{
             drawCircle(getPosX(), getPosY(), collisionRadius);
             display->display();
             move();
-            if(joystick->pressed()) close();
         }
 
         void drawCircle(int x, int y, int radius){
@@ -81,6 +80,11 @@ class Ball: public App{
             velocity.add(gravity);
             position.add(velocity);
         }
+
+        void clickedButton(){
+            close();
+        };
+
 };
 
 

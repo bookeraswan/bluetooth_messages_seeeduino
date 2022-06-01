@@ -11,6 +11,12 @@ void Bluetooth::send(char val){
     this->BluetoothSerial.write(val);
 }
 
+// template<typename T> Bluetooth::send(T val){
+//     this->send(String(val));
+// }
+
+// this->send<int>(6);
+
 void Bluetooth::send(short val){
     this->send(String(val));
 }

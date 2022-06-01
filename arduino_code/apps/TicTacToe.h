@@ -19,34 +19,6 @@ class TicTacToe: public App{
             display->setTextSize(1);
             display->setCursor(120, 0);
             display->print(pointer);
-
-            if(joystick->pressed()){
-                if(back){
-                    close();
-                }
-                else if(board[pointer] == '_'){
-                    board[pointer] = turn;
-                    if(turn == 'x'){
-                        turn = 'o';
-                    }
-                    else{
-                        turn = 'x';
-                    }
-                }
-
-            }
-            String j_direction = joystick->getDirection();
-            if(j_direction == "Right"){
-            pointer++;
-            }else if(j_direction == "Left"){
-            pointer--;
-            }
-            else if(j_direction == "Up"){
-                back = true;
-            }
-            else if(j_direction == "Down"){
-                back = false;
-            }
             if(back){
                 display->setCursor(0, 0);
                 display->setTextSize(1);
@@ -54,6 +26,7 @@ class TicTacToe: public App{
             }
             printBoard(board);
             display->display();
+            delay(150);
         }
 
 
@@ -84,4 +57,33 @@ class TicTacToe: public App{
             display->print(board[8]);
             display->print("   ");
         }
+
+        void clickedButton(){
+            if(back){
+                close();
+            }
+            else if(board[pointer] == '_'){
+                board[pointer] = turn;
+                if(turn == 'x'){
+                    turn = 'o';
+                }
+                else{
+                    turn = 'x';
+                }
+            }
+        };
+
+
+        void movedUp(){
+            back = true;
+        };
+        void movedDown(){
+            back = false;
+        };
+        void movedRight(){
+            pointer++;
+        };
+        void movedLeft(){
+            pointer--;
+        };
 };

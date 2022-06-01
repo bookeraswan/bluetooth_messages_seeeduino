@@ -14,4 +14,8 @@ class Coordinates: public App{
             bluetooth->send(joystick->getDirection());
             delay(1000);
         }
+
+        void clickedButton(){
+            close();
+        };
 };

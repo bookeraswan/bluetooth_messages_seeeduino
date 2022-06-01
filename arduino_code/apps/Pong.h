@@ -80,26 +80,6 @@ class Pong: public App{
             }
 
             display->display();
-
-            if(joystick->pressed()) {
-                if(choice == 0) close();
-                reset();
-                delay(200);
-            }
-            if(joystick->getDirection() == "Up"){
-                if(gameOver){
-                    choice = 0;
-                }else{
-                    setTopOfLine(getTopOfLine()-1);
-                }
-            }
-            else if(joystick->getDirection() == "Down"){
-                if(gameOver){
-                    choice = 1;
-                }else{
-                    setTopOfLine(getTopOfLine()+1);
-                }
-            }
         }
 
 
@@ -110,18 +90,6 @@ class Pong: public App{
             choice = 1;
             setTopOfLine(1);
         }
-
-        // void drawCircle(int x, int y, int radius){
-        //     for(int i = 0; i < getScreenHeight(); i++){
-        //         for(int j = 0; j < getScreenWidth(); j++){
-        //             int lhs = std::pow(x-j, 2) + std::pow(y-i, 2);
-        //             int rhs = std::pow(radius, 2);
-        //             if(lhs <= rhs){
-        //                 display->drawPixel(j, i, WHITE);
-        //             }
-        //         }
-        //     }
-        // }
 
         void drawCircle(int center_x, int center_y, int radius){
             for(int x = center_x; x <= center_x+radius; x++){
@@ -169,6 +137,28 @@ class Pong: public App{
             }
             position.add(velocity);
         }
+
+        void clickedButton(){
+            if(choice == 0) close();
+            reset();
+            delay(200);
+        };
+
+        void movedUp(){
+            if(gameOver){
+                choice = 0;
+            }else{
+                setTopOfLine(getTopOfLine()-1);
+            }
+        };
+
+        void movedDown(){
+            if(gameOver){
+                    choice = 1;
+                }else{
+                    setTopOfLine(getTopOfLine()+1);
+            }
+        };
 };
 
 

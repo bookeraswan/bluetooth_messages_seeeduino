@@ -36,6 +36,11 @@ public:
         return open;
     }
 
+    virtual void clickedButton(){};
+    virtual void movedUp(){};
+    virtual void movedDown(){};
+    virtual void movedRight(){};
+    virtual void movedLeft(){};
 };
 
 #endif

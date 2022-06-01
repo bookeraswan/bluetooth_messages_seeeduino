@@ -40,8 +40,10 @@ public:
         display->print(String(hours) + ":" + minutes_str + ":" + seconds_str);
         display->display();
 
-        if(joystick->pressed()){
-            close();
-        }
+        delay(100);
     }
+
+    void clickedButton(){
+        close();
+    };
 };

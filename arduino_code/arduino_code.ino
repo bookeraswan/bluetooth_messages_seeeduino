@@ -21,7 +21,7 @@
 #define SCREEN_HEIGHT 64
 
 #define OLED_RESET -1
-    Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 Bluetooth bt;
 JoyStick js(1, 0, 2);
@@ -48,16 +48,32 @@ MainMenu menu(apps, num_apps, &display, &js, &bt);
 void setup()
 {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-  display.clearDisplay();
-  display.setTextColor(WHITE);
-  display.clearDisplay();
-  display.display();
-  SerialUSB.begin(9600);
   menu.init();
 }
 
 void loop()
 {
-  // display.drawPixel(127, 0, WHITE);
+  
   menu.update();
+
+  if(js.pressed()) menu.clickedButton();
+
+  switch (js.getDirection()){
+    case RIGHT:
+      menu.movedRight();
+      break;
+
+    case LEFT:
+      menu.movedLeft();
+      break;
+
+    case UP:
+      menu.movedUp();
+      break;
+
+    case DOWN:
+      menu.movedDown();
+      break;
+  }
+
 }
