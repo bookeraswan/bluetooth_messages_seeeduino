@@ -16,6 +16,7 @@
 #include "apps/WhatsApp.h"
 #include "apps/Netflix.h"
 #include "apps/Pong.h"
+#include "apps/Drawing.h"
 
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
@@ -26,7 +27,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 Bluetooth bt;
 JoyStick js(1, 0, 2);
 
-#define NUMAPPS 10
+#define NUMAPPS 11
 
 Clock clock("Clock", &display, &js, &bt);
 TicTacToe t2("Tic Tac Toe", &display, &js, &bt);
@@ -38,8 +39,9 @@ WhatsApp t7("WhatsApp", &display, &js, &bt);
 Netflix t8("Netflix", &display, &js, &bt);
 Ball ball(&display, &js, &bt);
 Pong pong(&display, &js, &bt);
+Drawing drawing(&display, &js, &bt);
 
-App *apps[NUMAPPS] = {&clock, &t2, &t3, &t4, &t5, &t6, &t7, &ball, &t8, &pong};
+App *apps[NUMAPPS] = {&clock, &t2, &t3, &t4, &t5, &t6, &t7, &ball, &t8, &pong, &drawing};
 
 int num_apps = NUMAPPS;
 

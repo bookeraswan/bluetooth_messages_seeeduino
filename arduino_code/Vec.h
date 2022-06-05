@@ -23,4 +23,8 @@ class Vec{
             setX(getX() + otherVector.getX());
             setY(getY() + otherVector.getY());
         }
+
+        bool within(Vec X, Vec Y){
+            return this->getX()>X.getX() && this->getX()<X.getY() && this->getY()>Y.getX() && this->getY()<Y.getY();
+        }
 };
