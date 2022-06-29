@@ -2,6 +2,7 @@
 #define JOYSTICK
 
 #include <Arduino.h>
+#include "Vec.h"
 
 #define CENTER 'C'
 #define RIGHT 'R'
@@ -25,6 +26,8 @@ public:
   }
 
   char getDirection();
+
+  Vec getMovement();
 
   bool pressed();
 };

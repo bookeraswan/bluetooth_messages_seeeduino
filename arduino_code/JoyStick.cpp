@@ -25,6 +25,12 @@ char JoyStick::getDirection(){
     }
 }
 
+Vec JoyStick::getMovement(){
+  analogRead(x_pin);
+  analogRead(y_pin);
+}
+
 bool JoyStick::pressed(){
   return digitalRead(s_pin) == LOW;
 }
+

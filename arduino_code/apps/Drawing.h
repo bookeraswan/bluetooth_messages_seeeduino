@@ -1,5 +1,7 @@
 #include "../App.h"
 #include "../Vec.h"
+#include "../Array.h"
+#include <functional>
 
 
 #define WIDTH 128
@@ -131,8 +133,22 @@ class Drawing: public App{
         }
 
 
-        void reset(){
+        void forEachPixel(std::function<void(char)> lambda){
+            for(int i = 0; i < 48; i++){
+                for(int j = 0; j < WIDTH; j++){
+                    char pixel = drawing[j][i] == 1 ? '1' : '0';
+                    lambda(pixel);
+                }
+            }
+        }
 
+
+        void sendDrawing(){
+            bluetooth->send('[');
+            forEachPixel([this](char pixel){
+                bluetooth->send(pixel);
+            });
+            bluetooth->send(']');
         }
 
 
@@ -152,14 +168,7 @@ class Drawing: public App{
             }
             else if(overSendButton()){
                 // ===================================================================================
-                bluetooth->send("[");
-                for(int i = 0; i < 48; i++){
-                    for(int j = 0; j < WIDTH; j++){
-                        String pixel = drawing[j][i] == 1 ? "1" : "0";
-                        bluetooth->send(pixel);
-                    }
-                }
-                bluetooth->send("]");
+                sendDrawing();
                 //=====================================================
             }
             else{
